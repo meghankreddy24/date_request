@@ -1,0 +1,161 @@
+<style>body{margin:0}img{display:block;max-width:100%}</style><style>:root{--code-bg:#1e1e2e;--code-fg:#cdd6f4;--code-border:#313244}@media(prefers-color-scheme:light){:root{--code-bg:#eff1f5;--code-fg:#4c4f69;--code-border:#ccd0da}}pre{background:var(--code-bg);color:var(--code-fg);border:1px solid var(--code-border);border-radius:6px;padding:12px 16px;overflow-x:auto;font-size:13px;line-height:1.6;tab-size:4}pre code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre}code:not(pre code){background:rgba(128,128,128,0.15);padding:0.15em 0.4em;border-radius:4px;font-size:0.9em;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}</style><script>(function(){function S(){var d={};Object.defineProperties(this,{getItem:{value:function(k){return d.hasOwnProperty(k)?d[k]:null}},setItem:{value:function(k,v){var o=d[k]||null;d[k]=String(v);this.length=Object.keys(d).length}},removeItem:{value:function(k){delete d[k];this.length=Object.keys(d).length}},clear:{value:function(){d={};this.length=0}},key:{value:function(i){return Object.keys(d)[i]||null}},length:{value:0,writable:true}})}try{window.localStorage}catch(e){Object.defineProperty(window,'localStorage',{value:new S(),configurable:true})}try{window.sessionStorage}catch(e){Object.defineProperty(window,'sessionStorage',{value:new S(),configurable:true})}var hp=history.pushState;history.pushState=function(){try{hp.apply(history,arguments)}catch(e){}};var hr=history.replaceState;history.replaceState=function(){try{hr.apply(history,arguments)}catch(e){}};try{document.cookie}catch(e){Object.defineProperty(document,'cookie',{get:function(){return ''},set:function(){},configurable:true})}})();</script><script>document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();var id=a.getAttribute('href').slice(1);if(!id)return;var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}try{history.replaceState(null,'','#'+id)}catch(e){}});</script><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Special Question For You 💕</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ffecd2,#fcb69f,#ff9a9e,#fecfef);background-size:400% 400%;animation:gradientBG 8s ease infinite;overflow:hidden}
+@keyframes gradientBG{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.card{background:rgba(255,255,255,0.95);border-radius:25px;padding:50px 40px;text-align:center;max-width:450px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.15);position:relative;backdrop-filter:blur(10px)}
+
+h1{font-size:1.8rem;color:#e84393;margin-bottom:10px}
+.question{font-size:1.4rem;color:#555;margin:20px 0 30px;font-weight:500}
+.emoji-big{font-size:4rem;margin-bottom:20px;display:block}
+
+/* Buttons */
+.buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.btn-yes{padding:15px 45px;font-size:1.2rem;border:none;border-radius:50px;cursor:pointer;font-weight:700;background:linear-gradient(135deg,#e84393,#fd79a8);color:#fff;box-shadow:0 5px 20px rgba(232,67,147,0.4);transition:all 0.3s}
+.btn-yes:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(232,67,147,0.6)}
+.btn-no{padding:15px 45px;font-size:1.2rem;border:2px solid #ddd;border-radius:50px;cursor:pointer;font-weight:600;background:#fff;color:#999;transition:all 0.2s;position:relative}
+
+/* Quote */
+.quote{font-style:italic;color:#e84393;font-size:1.1rem;margin:20px 0;opacity:0;transition:opacity 0.5s}
+.quote.show{opacity:1}
+
+/* Day selection */
+.day-section{display:none;margin-top:25px}
+.day-section.show{display:block;animation:fadeIn 0.5s}
+.day-btn{padding:12px 30px;font-size:1.1rem;border:2px solid #e84393;border-radius:50px;cursor:pointer;font-weight:600;background:#fff;color:#e84393;margin:8px;transition:all 0.3s}
+.day-btn:hover{background:#e84393;color:#fff;transform:scale(1.05)}
+
+/* Final message */
+.final-msg{display:none;margin-top:20px}
+.final-msg.show{display:block;animation:fadeIn 0.5s}
+.final-msg p{font-size:1.2rem;color:#555;margin:10px 0}
+.final-msg .big-heart{font-size:3rem;animation:pulse 1s infinite}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+
+/* Floating hearts background */
+.hearts{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.heart{position:absolute;font-size:1.5rem;animation:float 6s ease-in-out infinite;opacity:0.6}
+@keyframes float{0%,100%{transform:translateY(100vh) rotate(0deg);opacity:0}50%{opacity:0.6}100%{transform:translateY(-100px) rotate(720deg);opacity:0}}
+
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="card" id="card">
+<!-- Step 1: The Question -->
+<div id="step1">
+<span class="emoji-big">🥺💕</span>
+<h1>Hey Beautiful!</h1>
+<p class="question">Would you like to go on a date with me?</p>
+<div class="buttons">
+<button class="btn-yes" onclick="sayYes()">Yes! 💕</button>
+<button class="btn-no" id="noBtn">No</button>
+</div>
+</div>
+
+<!-- Step 2: Day Selection -->
+<div id="step2" class="hidden">
+<span class="emoji-big">🦋✨</span>
+<p class="quote show">"Every love story is beautiful, but ours is my favorite."</p>
+<p class="question">When should we make magic happen?</p>
+<div class="day-section show">
+<button class="day-btn" onclick="pickDay('Saturday')">This Saturday ☀️</button>
+<button class="day-btn" onclick="pickDay('Sunday')">This Sunday 🌸</button>
+</div>
+</div>
+
+<!-- Step 3: Final Message -->
+<div id="step3" class="hidden">
+<span class="emoji-big">🎉💖</span>
+<p class="quote show">"You had me at Yes."</p>
+<div class="final-msg show">
+<p><strong id="dayChosen"></strong> it is! 🥰</p>
+<p style="margin-top:15px;font-size:1.3rem;color:#e84393;font-weight:600">I'll pick you up! 🚗💨</p>
+<p style="margin-top:10px;color:#777">Get ready for the best time ever ✨</p>
+<span class="big-heart">💕</span>
+</div>
+</div>
+</div>
+
+<script>
+// Make "No" button run away!
+const noBtn = document.getElementById('noBtn');
+let noBtnSize = 1;
+noBtn.addEventListener('mouseover', function() {
+    const card = document.getElementById('card');
+    const cardRect = card.getBoundingClientRect();
+    const maxX = cardRect.width - 150;
+    const maxY = cardRect.height - 60;
+    const randomX = Math.random() * maxX - maxX/2;
+    const randomY = Math.random() * maxY - maxY/2;
+    this.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    // Make Yes button bigger each time
+    noBtnSize *= 0.85;
+    this.style.fontSize = (1.2 * noBtnSize) + 'rem';
+    this.style.padding = `${15*noBtnSize}px ${45*noBtnSize}px`;
+    document.querySelector('.btn-yes').style.transform = `scale(${1 + (1-noBtnSize)*2})`;
+});
+noBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    this.textContent = "Try again 😏";
+    const randomX = Math.random() * 200 - 100;
+    const randomY = Math.random() * 200 - 100;
+    this.style.transform = `translate(${randomX}px, ${randomY}px)`;
+});
+
+function sayYes() {
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.remove('hidden');
+}
+
+function pickDay(day) {
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('step3').classList.remove('hidden');
+    document.getElementById('dayChosen').textContent = day;
+    launchConfetti();
+}
+
+// Floating hearts
+function createHearts() {
+    const container = document.getElementById('hearts');
+    const emojis = ['💕','💖','💗','🌸','✨','💘','🦋'];
+    for(let i=0;i<15;i++){
+        const heart = document.createElement('span');
+        heart.className='heart';
+        heart.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+        heart.style.left=Math.random()*100+'%';
+        heart.style.animationDelay=Math.random()*6+'s';
+        heart.style.animationDuration=(4+Math.random()*4)+'s';
+        container.appendChild(heart);
+    }
+}
+
+function launchConfetti(){
+    const emojis=['🎉','💕','✨','🥰','💖','🌸','🎊'];
+    for(let i=0;i<30;i++){
+        const conf=document.createElement('span');
+        conf.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+        conf.style.cssText=`position:fixed;font-size:${1+Math.random()*2}rem;left:${Math.random()*100}%;top:-20px;z-index:9999;animation:confettiFall ${2+Math.random()*3}s forwards;`;
+        document.body.appendChild(conf);
+        setTimeout(()=>conf.remove(),5000);
+    }
+    const style=document.createElement('style');
+    style.textContent='@keyframes confettiFall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}';
+    document.head.appendChild(style);
+}
+
+createHearts();
+</script>
+</body>
+</html>
